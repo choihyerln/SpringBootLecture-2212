@@ -9,11 +9,14 @@
 </head>
 <body>
 	<h3>사용자 리스트</h3>
+	${sessionUname}님 환영합니다.
+	<button onclick="location.href='/user/logout/'">로그아웃</button>
+	<button onclick="location.href='/user/register/'">회원가입</button>
 	<hr>
-	<table boarder="1">
+	<table border="1">
 		<tr>
 			<th>UID</th><th>패스워드</th><th>사용자 이름</th>
-			<th>email</th><th>등록일</th><th>탈퇴여부</th>
+			<th>email</th><th>등록일</th><th>탈퇴여부</th><th>액션</th>
 		</tr>
 		<c:forEach var="user" items="${userList}">
 		<tr>
@@ -23,6 +26,10 @@
 			<td>${user.email}</td>
 			<td>${user.regDate}</td>
 			<td>${user.isDeleted}</td>
+			<td>
+				<button onclick="location.href='/user/update/${user.uid}'">수정</button>
+				<button onclick="location.href='/user/delete/${user.uid}'">삭제</button>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

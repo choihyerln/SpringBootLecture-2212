@@ -12,6 +12,21 @@ public class User {
 	
 	public User() {}
 
+	public User(String uid, String uname, String email) {
+		super();
+		this.uid = uid;
+		this.uname = uname;
+		this.email = email;
+	}
+
+	public User(String uid, String pwd, String uname, String email) {
+		super();
+		this.uid = uid;
+		this.pwd = pwd;
+		this.uname = uname;
+		this.email = email;
+	}
+
 	public User(String uid, String pwd, String uname, String email, LocalDate regDate, int isDeleted) {
 		super();
 		this.uid = uid;

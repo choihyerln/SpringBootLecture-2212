@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,11 +54,18 @@ public class BasicController {
 	return "redirect:/basic/basic" + id;		
 	}
 	
-	// 기존 방
+	// 기존 방식
 	@RequestMapping("/basic5")
 	public String basic5(HttpServletRequest req) {
 		String id =  req.getParameter("id");
 		System.out.println("id: " + id);
 		return "redirect:/basic/basic" + id;		
 	}
+	
+//	@RequestMapping("/basic11")
+//	public String basic11(HttpServletRequest req) {
+//		HttpSession ss = req.getSession();
+//		session.setAttri
+//		return "redirect:/basic/basic" + id;		
+//	}
 }
