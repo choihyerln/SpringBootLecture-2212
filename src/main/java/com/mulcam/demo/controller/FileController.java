@@ -20,6 +20,12 @@ import com.mulcam.demo.entity.FileEntity;
 @RequestMapping("/file")
 public class FileController {
 	
+	@GetMapping("/download")
+	public String download() {
+		
+		return "file/upload";
+	}
+	
 	@GetMapping("/upload")
 	public String uploadForm() {
 		return "file/upload";
@@ -50,4 +56,5 @@ public class FileController {
 //		model.addAttribute("uploadFiles", list);
 //		return "file/result";
 	}
+	
 }
