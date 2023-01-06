@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>FireStation</title>
+	<title>Fire Station</title>
 </head>
 <body>
 	<h3>서울 소재 소방서 현황</h3>
