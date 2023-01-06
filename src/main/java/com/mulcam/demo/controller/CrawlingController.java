@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mulcam.demo.crawling.Crawling;
+import com.mulcam.demo.crawling.FireStation;
 import com.mulcam.demo.crawling.Genie;
 import com.mulcam.demo.crawling.Interpark;
 
@@ -19,12 +20,12 @@ public class CrawlingController {
 
 	@Autowired private Crawling crawling;
 	
-//	@GetMapping("/interpark")
-//	public String interpatk(Model model) throws Exception {
-//		List<Interpark> list = crawling.interpark();
-//		model.addAttribute("bookList", list);
-//		return "crawling/interpark";
-//	}
+	@GetMapping("/interpark")
+	public String interpatk(Model model) throws Exception {
+		List<Interpark> list = crawling.interpark();
+		model.addAttribute("bookList", list);
+		return "crawling/interpark";
+	}
 	
 	@GetMapping("/genie")
 	public String genie(Model model) throws Exception {
@@ -38,6 +39,13 @@ public class CrawlingController {
 		List<Genie> list = crawling.genie();
 		model.addAttribute("songList", list);
 		return "crawling/genie2";
+	}
+	
+	@GetMapping("/fireStation")
+	public String fireStation(Model model) throws Exception {
+		List<FireStation> list = crawling.fireStation();
+		model.addAttribute("stationList", list);
+		return "crawling/fireStation";
 	}
 	
 }
