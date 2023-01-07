@@ -25,7 +25,7 @@ public class SeleniumExercise {
 		System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver(options); 
 				
 		String url = "https://www.nfa.go.kr/nfa/introduce/status/firestationidfo";
 		driver.get(url);

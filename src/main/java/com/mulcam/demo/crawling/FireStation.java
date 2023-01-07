@@ -34,5 +34,4 @@ public class FireStation {
 	public String toString() {
 		return "FireStation [name=" + name + ", addr=" + addr + ", tel=" + tel + "]";
 	}
-	
 }
