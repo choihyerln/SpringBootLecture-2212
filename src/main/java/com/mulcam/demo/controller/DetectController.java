@@ -39,7 +39,6 @@ public class DetectController {
 	@Value("${etriKey}") private String etriKey;
 	@Value("${spring.servlet.multipart.location}") private String uploadDir;
 
-	
 	@GetMapping("/naver")
 	public String naverForm() {
 		return "detect/naverForm";
@@ -48,7 +47,7 @@ public class DetectController {
 	@PostMapping("/naver")
 	public String naver(MultipartFile upload, Model model) throws Exception {
 		File uploadFile = new File(upload.getOriginalFilename());
-		upload.transferTo(uploadFile);		// uploadDir에 파일 저장
+		upload.transferTo(uploadFile);				// uploadDir에 파일 저장
 		
 		String apiURL = "https://naveropenapi.apigw.ntruss.com/vision-obj/v1/detect"; // 객체 인식
 		URL url = new URL(apiURL);
@@ -86,7 +85,7 @@ public class DetectController {
         out.close();
         
         // 응답 결과 확인
-        int responseCode = conn.getResponseCode();
+ 		int responseCode = conn.getResponseCode();
  		if (responseCode != 200)
  			System.out.println("error!!!!!!! responseCode= " + responseCode);
         
@@ -112,7 +111,7 @@ public class DetectController {
         String file = "/tmp/yolo-test.jpg";    // 이미지 파일 경로
         String imageContents = "";
         Gson gson = new Gson();
-        
+		
         Map<String, Object> request = new HashMap<>();
         Map<String, String> argument = new HashMap<>();
  
@@ -120,7 +119,6 @@ public class DetectController {
         byte[] imageBytes = Files.readAllBytes(path);
         imageContents = Base64.getEncoder().encodeToString(imageBytes);
         
-        // POST data/parameter 전송
         argument.put("type", type);
         argument.put("file", imageContents);
         request.put("argument", argument);
@@ -129,7 +127,7 @@ public class DetectController {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
         conn.setDoOutput(true);
-        conn.setRequestProperty("Authorization", accessKey);
+        conn.setRequestProperty("Authorization", accessKey); 	
         DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
         wr.write(gson.toJson(request).getBytes("UTF-8"));
         wr.flush();
@@ -142,9 +140,10 @@ public class DetectController {
         String responBody = new String(buffer);
 
         String data = "[responseCode] " + responseCode + "<br>"
-        			+ "[responBody]" + "<br>"
-        			+ responBody;
-        
-		return data;
+    			+ "[responBody]" + "<br>"
+    			+ responBody;
+    
+        return data;
 	}
+	
 }

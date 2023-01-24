@@ -10,7 +10,7 @@
 </head>
 <body style="margin: 40px;">
     <h3>네이버 인공지능 API 객체 탐지 결과</h3>
-    <hr>
+<hr>
     <canvas id="tcanvas" width="100" height="100"></canvas>
     <br><br>
     <button onclick="location.href='/detect/naver'">재실행</button>

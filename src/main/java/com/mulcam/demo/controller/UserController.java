@@ -84,10 +84,18 @@ public class UserController {
 		return "redirect:/user/list";
 	}
 	
-	@GetMapping("/delete")
+	/** ? */
+//	@GetMapping("/delete")
+//	public String delete(@PathVariable String uid) {
+//		service.delete(uid);
+//		return "redirect:/user/list";
+//	}
+	
+	/** 완전 삭제 */
+	@GetMapping("/delete/{uid}")
 	public String delete(@PathVariable String uid) {
 		service.delete(uid);
-		return "redirect:user/list";
+		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/login")
